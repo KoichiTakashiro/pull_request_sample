@@ -5,7 +5,7 @@
 ## git -> Githubへのpush（流れ）
 1. ローカル上でデイレクトリ作成（プロジェクト）
 2. ディレクトリ内で`git init`コマンドを使い初期化
-3. 何かしたの作成 or 編集
+3. 何かしらの作成 or 編集
 4. 更新したものをステージングエリアに上げる
 5. `git commit -m "コメント"`で変更を保存する
 6. Github上でリモートリポジトリを作成
@@ -41,3 +41,14 @@
 1. Github上（もしくはlog上）でコミットのハッシュをコピー
 2. `git checkout ハッシュ` コマンドで指定したコミットまで戻る
 3. `git checkout ブランチ名` コマンドで最新のコミットに戻る
+
+###別ブランチのコミット#masterブランチへ追加する方法
+1. 別ブランチでの変更をコミットしきる
+2. `git log --online` でコミットのハッシュを見る
+3. `git checkout master`でmasterブランチへ移動
+4. `git check cherry-pick ハッシュ`でコミットをmasterへ追加
+
+### ローカルブランチの削除
++ `git branch -d ブランチ名`
++ `error: The branch 'ブランチ名' is not fully merged.`が出れば、
+    +`git branch -D ブランチ名`で強制削除も可能
